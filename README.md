@@ -26,11 +26,11 @@ The application uses a custom-built **Swift Vapor REST API backend** integrated 
 
 ## 📱  Screenshots & Video
 #### 🎥 Application Demo
-[▶ Watch AI-Powered Resume Matcher App Demo](https://github.com/krunal-maisuriya/AIResumeMatcher_iOS_App/releases/download/v1.0-demo/Screen.Recording.iPhone.18.Pro.07-11-2026.at.12.35.28.PM.mp4)
+[▶ Watch AI-Powered Resume Matcher App Demo](https://github.com/krunal-maisuriya/AIResumeMatcher_iOS_App/releases/download/v1.0-demo/Screen.Recording.iPhone.18.Pro.07-11-2026.at.9.21.31.PM.mp4)
 
 #### 📸 Application Screenshots
 <img width="200" height="440" alt="Resume Matcher Screenshot1" src="https://github.com/user-attachments/assets/0f0b5009-a8bf-4331-91fc-4fbfb83c4e82" />
-<img width="200" height="440" alt="Resume Matcher Screenshot2" src="https://github.com/user-attachments/assets/94fc6f5e-6592-4ab9-842d-b7e56d0cdcd5" />
+<img width="200" height="440" alt="Resume Matcher Screenshot2" src="https://github.com/user-attachments/assets/34d403d7-eed4-4431-ace2-ea63b9af48c9" />
 
 ## ✨ Features
 1. Job Description Input
