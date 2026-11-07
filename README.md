@@ -26,6 +26,7 @@ The application uses a custom-built **Swift Vapor REST API backend** integrated 
 
 ## 📱  Screenshots & Video
 #### 🎥 Application Demo
+[▶ Watch AI-Powered Resume Matcher App Demo](https://github.com/krunal-maisuriya/AIResumeMatcher_iOS_App/releases/download/v1.0-demo/Screen.Recording.iPhone.18.Pro.07-11-2026.at.12.35.28.PM.mp4)
 
 #### 📸 Application Screenshots
 <img width="200" height="440" alt="Resume Matcher Screenshot1" src="https://github.com/user-attachments/assets/0f0b5009-a8bf-4331-91fc-4fbfb83c4e82" />
