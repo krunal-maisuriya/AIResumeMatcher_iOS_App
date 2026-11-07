@@ -8,56 +8,58 @@
 import SwiftUI
 
 struct ResumeAnalyzeResultView: View {
-    
     let analyzeResult: AnalysisResponse
     
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                ScrollView(.vertical, showsIndicators: false) {
+//        VStack(alignment: .leading) {
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack(alignment: .leading, spacing: 20) {
                     
-                    VStack(spacing: 25) {
-                        //  Analysis Report
-                        MatchedScoreIndicatorView(
-                            matchedPercentage: analyzeResult.matchPercentage,
-                            experienceMatch: analyzeResult.experienceMatch,
-                            recommendation: analyzeResult.recommendation,
-                        )
-                        
-                        //  AI Summary
-                        if !analyzeResult.summary.isEmpty {
-                            AISummaryView(summary: analyzeResult.summary)
-                        }
-                        
-                        //  Matched Skills
-                        if (analyzeResult.matchedSkills.count > 0) {
-                            MatchedSkillsView(matchedSkill: analyzeResult.matchedSkills)
-                        }
-                        
-                        //  Your Strengths
-                        if (analyzeResult.strengths.count > 0) {
-                            YourStrengthsView(strengths: analyzeResult.strengths)
-                        }
-                        
-                        //  Missing Skills
-                        if (analyzeResult.missingSkills.count > 0) {
-                            MissingSkillsView(missingSkill: analyzeResult.missingSkills)
-                        }
-                        
-                        //  Improvements
-                        if (analyzeResult.improvements.count > 0) {
-                            ImprovementsView(improvements: analyzeResult.improvements)
-                        }
+                    // MARK: - Match Score
+                    MatchedScoreIndicatorView(
+                        matchedPercentage: analyzeResult.matchPercentage,
+                        experienceMatch: analyzeResult.experienceMatch,
+                        recommendation: analyzeResult.recommendation
+                    )
+                    
+                    // MARK: - AI Summary
+                    if !analyzeResult.summary.isEmpty {
+                        AISummaryView(summary: analyzeResult.summary)
+                    }
+                    
+                    // MARK: - Matched Skills
+                    if (analyzeResult.matchedSkills.count > 0) {
+                        MatchedSkillsView(matchedSkill: analyzeResult.matchedSkills)
+                    }
+                    
+                    // MARK: - Your Strengths
+                    if (analyzeResult.strengths.count > 0) {
+                        YourStrengthsView(strengths: analyzeResult.strengths)
+                    }
+                    
+                    // MARK: - Missing Skills
+                    if (analyzeResult.missingSkills.count > 0) {
+                        MissingSkillsView(missingSkill: analyzeResult.missingSkills)
+                    }
+                    
+                    // MARK: - Improvements
+                    if (analyzeResult.improvements.count > 0) {
+                        ImprovementsView(improvements: analyzeResult.improvements)
                     }
                 }
+                .padding(.horizontal, 16)
+                .padding(.top, 16)
+                .padding(.bottom, 30)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
             .background(AppColors.backgroundColor)
-            .onAppear {
-                print(analyzeResult)
-            }
-        }
+            .navigationTitle("Analysis Report")
+            .navigationBarTitleDisplayMode(.inline)
+//        }
+//        .frame(maxWidth: .infinity, alignment: .leading)
+//        .padding(.horizontal)
+//        .background(AppColors.backgroundColor)
     }
 }
 

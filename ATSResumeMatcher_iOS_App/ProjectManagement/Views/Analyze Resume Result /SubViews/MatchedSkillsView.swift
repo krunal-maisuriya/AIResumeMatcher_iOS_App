@@ -18,42 +18,24 @@ struct MatchedSkillsView: View {
             SectionHeaderView(
                 title: "Matched Skills",
                 icon: "checkmark.seal.fill",
-                color: Color(AppColors.darkGreenColor),
+                color: Color(colorScheme == .dark ? AppColors.greenColor : AppColors.darkGreenColor),
                 count: "\(matchedSkill.count) Matched"
             )
             
-            VStack {
-                ForEach(matchedSkill.enumerated(), id: \.offset) { index, matchSkill in
-                    VStack {
-                        HStack(alignment: .top, spacing: 10) {
-                            Image(systemName: "checkmark.circle.fill")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 17, height: 17)
-                                .offset(y: 3)
-                                .foregroundStyle(Color(colorScheme == .dark ? AppColors.greenColor : AppColors.darkGreenColor))
-                            
-                            VStack(alignment: .leading) {
-                                Text(matchSkill.skill)
-                                    .font(.system(size: 17, weight: .bold))
-                                
-                                Text(matchSkill.evidence)
-                                    .font(.system(size: 13, weight: .regular))
-                                    .opacity(0.75)
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding(.horizontal)
-
-                        if (index != (matchedSkill.count - 1)) {
-                            Divider()
-                                .padding(.vertical, 3)
-                        }
-                    }
+            FlowTagLayoutView(horizontalSpacing: 10, verticalSpacing: 12) {
+                ForEach(matchedSkill) { skill in
+                    Text(skill.skill)
+                        .font(.system(size: 13, weight: .medium))
+                        .lineLimit(1)
+                        .fixedSize(horizontal: true, vertical: false)
+                        .foregroundStyle(Color(colorScheme == .dark ? AppColors.greenColor : AppColors.darkGreenColor))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 9)
+                        .background(Capsule().fill(Color(colorScheme == .dark ? AppColors.greenColor : AppColors.darkGreenColor).opacity(0.12)))
                 }
             }
-            .padding(.vertical, 15)
+            .padding(15)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 20).fill(Color(AppColors.cardColor)))
         }
         .frame(maxWidth: .infinity, alignment: .leading)

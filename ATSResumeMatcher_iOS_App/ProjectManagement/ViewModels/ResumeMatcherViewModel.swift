@@ -100,9 +100,7 @@ final class ResumeMatcherViewModel {
                 jobDescription: jobDesc
             )
             
-            analysisResult = result
-            print("Analysis Result: \(analysisResult)")
-            
+            analysisResult = result            
         } catch {
             errorMessage = error.localizedDescription
         }

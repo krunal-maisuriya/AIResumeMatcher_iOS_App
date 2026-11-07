@@ -29,9 +29,7 @@ struct SectionHeaderView: View {
                     .foregroundStyle(color)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)
-                    .background {
-                        Capsule().fill(color.opacity(0.15))
-                    }
+                    .background(Capsule().fill(color.opacity(0.15)))
             }
         }
         .font(.system(size: 18, weight: .bold))

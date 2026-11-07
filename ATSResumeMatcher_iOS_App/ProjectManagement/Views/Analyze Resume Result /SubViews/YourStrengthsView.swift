@@ -17,31 +17,28 @@ struct YourStrengthsView: View {
             SectionHeaderView(
                 title: "Your Strengths",
                 icon: "star.fill",
-                color: Color(AppColors.darkGreenColor),
+                color: Color(colorScheme == .dark ? AppColors.greenColor : AppColors.darkGreenColor),
                 count: "\(strengths.count) Strengths"
             )
             
-            VStack {
+            VStack(alignment: .leading, spacing: 14) {
                 ForEach(strengths, id: \.self) { strength in
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .top , spacing: 8) {
-                            Circle()
-                                .fill(colorScheme == .dark ? .white : .black)
-                                .frame(width: 7, height: 7)
-                                .offset(y: 5)
-                                
-                            Text(strength)
-                                .font(.system(size: 13, weight: .regular))
-                            
-                            Spacer()
-                        }
-                        .padding(.vertical, 3)
-                        .padding(.horizontal)
+                    HStack(alignment: .top, spacing: 10) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 16))
+                            .foregroundStyle(Color(colorScheme == .dark ? AppColors.greenColor : AppColors.darkGreenColor))
+                            .padding(.top, 1)
+                        
+                        Text(strength)
+                            .font(.system(size: 13, weight: .regular))
+                            .fixedSize(horizontal: false, vertical: true)
+
+                        Spacer(minLength: 0)
                     }
                 }
             }
+            .padding(15)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.vertical, 15)
             .background(RoundedRectangle(cornerRadius: 20).fill(Color(AppColors.cardColor)))
         }
         .frame(maxWidth: .infinity, alignment: .leading)

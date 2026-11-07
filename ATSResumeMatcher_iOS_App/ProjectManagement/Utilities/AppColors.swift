@@ -24,7 +24,6 @@ enum AppColors {
             : UIColor(hex: "#FFFFFF")
     })
     
-    static let grayColor = UIColor(hex: "#BDBDBD")
     static let greenColor = UIColor(hex: "#2DBE68")
     static let darkGreenColor = UIColor(hex: "#006400")
     static let redColor = UIColor(hex: "#EF4444")

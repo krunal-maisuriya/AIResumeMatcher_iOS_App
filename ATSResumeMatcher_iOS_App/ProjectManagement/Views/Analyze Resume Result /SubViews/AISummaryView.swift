@@ -12,12 +12,16 @@ struct AISummaryView: View {
     
     var summary: String
     
+    private var iconColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 7) {
+        VStack(alignment: .leading, spacing: 12) {
             SectionHeaderView(
                 title: "AI Summary",
                 icon: "sparkles",
-                color: colorScheme == .dark ? .white : .black,
+                color: iconColor,
             )
             
             Text(summary)

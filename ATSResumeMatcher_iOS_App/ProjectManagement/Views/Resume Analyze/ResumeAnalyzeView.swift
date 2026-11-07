@@ -14,7 +14,6 @@ struct ResumeAnalyzeView: View {
     @State private var resumeViewModel = ResumeMatcherViewModel()
     
     @State private var isChoosedResume: Bool = false
-    @State private var navigateToSecond = false
 
     
     var body: some View {
@@ -102,6 +101,9 @@ struct ResumeAnalyzeView: View {
                                 removeAction: {
                                     resumeViewModel.selectedFileName = nil
                                     resumeViewModel.pdfData = nil
+                                    resumeViewModel.pdfSize = ""
+                                    resumeViewModel.analysisResult = nil
+                                    
                                     isChoosedResume = false
                                 }
                             )
@@ -171,13 +173,19 @@ struct ResumeAnalyzeView: View {
                     resumeViewModel.errorMessage = error.localizedDescription
                 }
             }
-            .alert("Validation Message",
-                   isPresented: Binding(
+            .alert(
+                "Validation Message",
+                isPresented: Binding(
                     get: { resumeViewModel.errorMessage != nil },
-                    set: { if !$0 { resumeViewModel.errorMessage = "" } })
+                    set: { isPresented in
+                        if !isPresented {
+                            resumeViewModel.errorMessage = nil
+                        }
+                    }
+                )
             ) {
                 Button("OK", role: .cancel) {
-                    resumeViewModel.errorMessage = ""
+                    resumeViewModel.errorMessage = nil
                 }
             } message: {
                 Text(resumeViewModel.errorMessage ?? "")

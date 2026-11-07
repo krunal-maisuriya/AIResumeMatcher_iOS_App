@@ -19,34 +19,20 @@ struct MissingSkillsView: View {
                 count: "\(missingSkill.count) Missing"
             )
             
-            VStack {
-                ForEach(missingSkill.enumerated(), id: \.offset) { index, mSkill in
-                    VStack {
-                        HStack(alignment: .center, spacing: 10) {
-                            Text(mSkill.skill)
-                                    .font(.system(size: 14, weight: .semibold))
-                                
-                            Spacer()
-                            
-                            Text(mSkill.importance)
-                                .font(.system(size: 13, weight: .semibold))
-                                .foregroundStyle(Color(AppColors.redColor))
-                                .padding(.horizontal)
-                                .padding(.vertical, 6)
-                                .background {
-                                    Capsule().fill(Color(AppColors.redColor).opacity(0.15))
-                                }
-                        }
-                        .padding(EdgeInsets(top: 0, leading: 13, bottom: 0, trailing: 8))
-                        
-                        if (index != (missingSkill.count - 1)) {
-                            Divider()
-                                .padding(.vertical, 3)
-                        }
-                    }
+            FlowTagLayoutView(horizontalSpacing: 10, verticalSpacing: 12) {
+                ForEach(missingSkill) { skill in
+                    Text(skill.skill)
+                        .font(.system(size: 13, weight: .medium))
+                        .lineLimit(1)
+                        .fixedSize(horizontal: true, vertical: false)
+                        .foregroundStyle(Color(AppColors.redColor))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 9)
+                        .background(Capsule().fill(Color(AppColors.redColor).opacity(0.12)))
                 }
             }
-            .padding(.vertical, 15)
+            .padding(15)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 20).fill(Color(AppColors.cardColor)))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
